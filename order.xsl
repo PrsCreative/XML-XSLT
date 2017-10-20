@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"><!-- <xsl:decimal-format name="Europe" decimal-separator="," grouping-separator="."/>
- -->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<!-- <xsl:decimal-format name="Europe" decimal-separator="," grouping-separator="."/> -->
+<xsl:variable name="grandTotalQty" select="12" />
+
 	<xsl:template match="/">
 		<html>
 			<body><!-- Init Summary Information Template -->
+			
+			
 				<xsl:apply-templates select="child::customers/child::customer"/>
+			
 			</body>
 		</html>
 	</xsl:template><!-- customer template #1 -->
@@ -43,6 +48,7 @@
 			</tbody>
 		</table>
 		<br/>
+		
 		<table border="3" width="600">
 			<tbody>
 				<tr bgcolor="a4d6f9">
@@ -59,7 +65,7 @@
 						Grand total
 					</td>
 					<td>
-						<xsl:value-of select="sum(order/items/item/attribute::qty)"/>
+						<xsl:value-of select="$grandTotalQty"/>
 					</td>
 					<td>
 						
@@ -80,6 +86,7 @@
 			</td>
 			<td>
 				<xsl:value-of select="sum(items/item/attribute::qty)"/>
+				<xsl:with-param name="grandTotalQty" select="sum(items/item/attribute::qty)"/>
 			</td>
 			<td>
 				<xsl:value-of select="format-number(sum(items/item/attribute::price), '#.00')"/>
