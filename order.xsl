@@ -81,13 +81,13 @@
 				Sub total
 			</td>
 			<td>
-				1
+				-
 			</td>
 			<td>
-				2
+				-
 			</td>
 			<td>
-				3
+				
 			</td>
 		</tr>
 	</xsl:template>
@@ -95,22 +95,24 @@
 	<xsl:template match="items/item">
 		<tr>
 			<td>
-				<xsl:value-of select="attribute::date"/>
+				<xsl:if test="position()=2" >
+				  	<xsl:value-of select="../../attribute::date"/>
+				</xsl:if>
 			</td>
 			<td>
 				<xsl:value-of select="position()"/>)
-					</td>
-			<td>
-				<xsl:value-of select="item"/>
 			</td>
 			<td>
-				<xsl:value-of select="item/attribute::qty"/>
+				<xsl:value-of select="."/>
 			</td>
 			<td>
-				<xsl:value-of select="item/attribute::price"/>
+				<xsl:value-of select="attribute::qty"/>
 			</td>
 			<td>
-				<xsl:value-of select="attribute::price"/>*<xsl:value-of select="item/attribute::qty"/>
+				<xsl:value-of select="attribute::price"/>
+			</td>
+			<td>
+				<xsl:value-of select="attribute::price * attribute::qty"/>
 			</td>
 		</tr>
 	</xsl:template>
