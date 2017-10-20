@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="order.xsl" ?>
+<customers>
+	<customer CID="C101">
+		<cName>
+			<fName>Rachel</fName>
+			<lName>Wilson</lName>
+		</cName>
+		<street>8502 Nighthawk Lane</street>
+		<city>Darby</city>
+		<state>NH</state>
+		<postalCode>80021</postalCode>
+		<phone>(410) 555-2920</phone>
+		<orders>
+			<order OID="OR10311" date="6/16/2008">
+				<items>
+					<item price="19.95" qty="1">Long Sparklers (box 20)</item>
+					<item price="29.95" qty="2">Goblin Fountain</item>
+					<item price="25.50" qty="2">Dragon Fountain</item>
+					<item price="29.95" qty="1">Nighteyes (box 10)</item>
+					<item price="19.95" qty="1">Assorted items Box #1</item>
+				</items>
+			</order>
+			<order OID="OR09114" date="6/11/2007">
+				<items>
+					<item price="29.95" qty="1">Assorted items Box #2</item>
+					<item price="34.42" qty="2">Phoenix Fountain</item>
+					<item price="7.50" qty="4">Firecracker 80 Strings of 16</item>
+					<item price="13.99" qty="5">Bottle rockets with stars and report (box 20)</item>
+				</items>
+			</order>
+		</orders>
+	</customer>
+	<customer CID="C102">
+		<cName>
+			<fName>Kevin</fName>
+			<lName>Kemper</lName>
+		</cName>
+		<street>25 Maple Avenue</street>
+		<city>Cutler</city>
+		<state>KY</state>
+		<postalCode>20401</postalCode>
+		<phone>(611) 555-4033</phone>
+		<orders>
+			<order OID="OR10899" date="5/14/2008">
+				<items>
+					<item price="14.52" qty="5">Moon Rockets 12 packs of 12</item>
+					<item price="7.50" qty="5">Firecracker 80 Strings of 16</item>
+					<item price="19.95" qty="2">Crackling Balls (box 16)</item>
+					<item price="19.95" qty="1">Long Sparklers (box 20)</item>
+					<item price="29.95" qty="4">Goblin Fountain</item>
+				</items>
+			</order>
+			<order OID="OR09916" date="6/21/2007">
+				<items>
+					<item price="42.50" qty="1">Time Bomb</item>
+					<item price="14.50" qty="1">Bucket of Fireworks</item>
+					<item price="19.95" qty="1">Crackling Balls (box 16)</item>
+					<item price="19.95" qty="1">Long Sparklers (box 20)</item>
+					<item price="29.95" qty="2">Nightair Fountain</item>
+					<item price="7.50" qty="5">Firecracker 80 Strings of 16</item>
+				</items>
+			</order>
+			<order OID="OR08892" date="6/11/2006">
+			
+				<items>
+					<item price="29.95" qty="1">Nightair Fountain</item>
+					<item price="7.50" qty="5">Firecracker 80 Strings of 16</item>
+					<item price="19.95" qty="1">Crackling Balls (box 16)</item>
+				</items>
+			</order>
+		</orders>
+	</customer>
+</customers>

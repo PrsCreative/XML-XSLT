@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><root>
+<file open="false" path="C:\Users\Prawit.Sar\Documents\INT640\OrderWithSubToabl\order.xml" type="XML">
+<param name="lastView" value="Source"/>
+<param name="xslt.data.file" value="C:\Users\Prawit.Sar\Documents\INT640\OrderWithSubToabl\order.xml"/>
+<param name="xslt.xslt.file" value="C:\Users\Prawit.Sar\Documents\INT640\OrderWithSubToabl\order.xsl"/>
+<param name="xslt.result.file" value="C:\Users\Prawit.Sar\Documents\INT640\OrderWithSubToabl\result.html"/>
+<param name="xslt.fop" value="false"/>
+<param name="xslt.ok" value="true"/>
+<param name="xslt.displayFile" value="false"/>
+<param name="xslt.openFile" value="false"/>
+<param name="reload.res" value="ok"/>
+</file>
+<file path="C:\Users\Prawit.Sar\Documents\INT640\OrderWithSubToabl"/>
+<file open="true" path="C:\Users\Prawit.Sar\Documents\INT640\OrderWithSubToabl\order.xsl" type="XSLT"/>
+</root>
