@@ -7,12 +7,12 @@
 				<xsl:apply-templates select="child::customers/child::customer"/>
 			</body>
 		</html>
-	</xsl:template>
+	</xsl:template><!-- customer template #1 -->
 	<xsl:template match="customer">
 		<table border="3" cellpadding="2">
 			<tbody>
 				<tr>
-					<th colspan="2">Summary Information</th>
+					<th colspan="2" bgcolor="a4d6f9">Summary Information</th>
 				</tr>
 				<tr>
 					<th>Customer</th>
@@ -45,7 +45,7 @@
 		<br/>
 		<table border="3" width="600">
 			<tbody>
-				<tr>
+				<tr bgcolor="a4d6f9">
 					<th>Date</th>
 					<th>Item</th>
 					<th>Description</th>
@@ -54,49 +54,46 @@
 					<th>Total</th>
 				</tr>
 				<xsl:apply-templates select="orders"/>
-				<tr>
-				<td colspan="3">
-					Grand total
-				</td>
-				<td>
-					1
-				</td>
-				<td>
-					2
-				</td>
-				<td>
-					3
-				</td>
-			</tr>
+				<tr bgcolor="#53b034">
+					<td colspan="3">
+						Grand total
+					</td>
+					<td>
+						<xsl:value-of select="sum(order/items/item/attribute::qty)"/>
+					</td>
+					<td>
+						
+					</td>
+					<td>
+						
+					</td>
+				</tr>
 			</tbody>
 		</table>
 		<br/>
-	</xsl:template>
-	
-	
+	</xsl:template><!-- End customer template #1 --><!-- Order template #2 -->
 	<xsl:template match="orders/order">
 		<xsl:apply-templates select="items"/>
-		<tr>
+		<tr bgcolor="#f7db99">
 			<td colspan="3">
 				Sub total
 			</td>
 			<td>
-				-
+				<xsl:value-of select="sum(items/item/attribute::qty)"/>
 			</td>
 			<td>
-				-
+				<xsl:value-of select="format-number(sum(items/item/attribute::price), '#.00')"/>
 			</td>
 			<td>
-				
+				<xsl:value-of select="format-number(sum(items/item/attribute::qty) * sum(items/item/attribute::price), '#.00')"/>
 			</td>
 		</tr>
-	</xsl:template>
-	
+	</xsl:template><!-- End order template #2 --><!-- Item template #3 -->
 	<xsl:template match="items/item">
 		<tr>
 			<td>
-				<xsl:if test="position()=2" >
-				  	<xsl:value-of select="../../attribute::date"/>
+				<xsl:if test="position()=2">
+					<xsl:value-of select="../../attribute::date"/>
 				</xsl:if>
 			</td>
 			<td>
@@ -115,6 +112,5 @@
 				<xsl:value-of select="attribute::price * attribute::qty"/>
 			</td>
 		</tr>
-	</xsl:template>
-	
+	</xsl:template><!-- End item template #3 -->
 </xsl:stylesheet>
