@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<!-- <xsl:decimal-format name="Europe" decimal-separator="," grouping-separator="."/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"><!-- <xsl:decimal-format name="Europe" decimal-separator="," grouping-separator="."/>
  -->
 	<xsl:template match="/">
 		<html>
-			<body>
+			<body><!-- Init Summary Information Template -->
 				<xsl:apply-templates select="child::customers/child::customer"/>
-				<br/>
-				
 			</body>
 		</html>
 	</xsl:template>
-	
 	<xsl:template match="customer">
 		<table border="3" cellpadding="2">
 			<tbody>
@@ -41,34 +37,82 @@
 				<tr>
 					<th>Phone Number</th>
 					<td>
-						<xsl:value-of select="customers/customer/phone"/>
+						<xsl:value-of select="phone"/>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		<br/>
+		<table border="3" width="600">
+			<tbody>
+				<tr>
+					<th>Date</th>
+					<th>Item</th>
+					<th>Description</th>
+					<th>Qty</th>
+					<th>Price</th>
+					<th>Total</th>
+				</tr>
+				<xsl:apply-templates select="orders"/>
+				<tr>
+				<td colspan="3">
+					Grand total
+				</td>
+				<td>
+					1
+				</td>
+				<td>
+					2
+				</td>
+				<td>
+					3
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<br/>
 	</xsl:template>
 	
+	
 	<xsl:template match="orders/order">
+		<xsl:apply-templates select="items"/>
+		<tr>
+			<td colspan="3">
+				Sub total
+			</td>
+			<td>
+				1
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				3
+			</td>
+		</tr>
+	</xsl:template>
+	
+	<xsl:template match="items/item">
 		<tr>
 			<td>
-				<xsl:value-of select="./attribute::date"/>
+				<xsl:value-of select="attribute::date"/>
 			</td>
 			<td>
 				<xsl:value-of select="position()"/>)
 					</td>
 			<td>
-				<xsl:value-of select="./items/item"/>
+				<xsl:value-of select="item"/>
 			</td>
 			<td>
-				<xsl:value-of select="./items/item/attribute::qty"/>
+				<xsl:value-of select="item/attribute::qty"/>
 			</td>
 			<td>
-				<xsl:value-of select="./items/item/attribute::price"/>
+				<xsl:value-of select="item/attribute::price"/>
 			</td>
 			<td>
-				<xsl:value-of select="./items/item/attribute::price"/>*<xsl:value-of select="./items/item/attribute::qty"/>
+				<xsl:value-of select="attribute::price"/>*<xsl:value-of select="item/attribute::qty"/>
 			</td>
 		</tr>
 	</xsl:template>
-	<xsl:template match="order"/>
+	
 </xsl:stylesheet>
